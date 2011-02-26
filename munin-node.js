@@ -6,7 +6,7 @@
 
 // Settings
 var allowedHosts = ['192.168.5.0/24', /192\.168\.5\.\d+/];
-var pluginPath = '/etc/munin/plugins/';
+var pluginPath = '/Users/hn/munin-nodejs/plugins/';
 var MUNIN_LIBDIR = '/usr/share/munin/';
 var tcpPort = 4949;
 
@@ -66,7 +66,7 @@ var muninNodeHandler = function(s) {
       return;
    }
 
-   s.write("# munin node on " + os.hostname() + " via nodejs\n");
+   s.write("# munin node at " + os.hostname() + "\n");
 
    s.on("data", function(data) {
       var commandMatch = /^(\S+)\s(.*)/;
@@ -117,7 +117,7 @@ var muninNodeHandler = function(s) {
                break;
             
             case "version":
-               s.write("munin node on " + os.hostname() + " version: 1.4.4 compatible\n");
+               s.write("munins node on " + os.hostname() + " version: 1.4.4\n");
                break;
             
             case "quit":
